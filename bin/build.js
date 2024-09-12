@@ -1,6 +1,6 @@
 const fs = require('fs');
 const fse = require('fs-extra');
-const sass = require('node-sass');
+const sass = require('sass');
 const less = require('less');
 const globby = require('globby');
 const chalk = require('chalk');
