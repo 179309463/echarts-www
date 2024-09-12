@@ -72,20 +72,6 @@ html(lang='#{htmlAttrLang}')
                 strong We're sorry, but Apache ECharts website doesn't work properly without JavaScript enabled. Please enable it to continue.
             else
                 strong 很抱歉，Apache ECharts 网站需要启用 JavaScript 才能正常运行。
-    #apache-banner
-        .txt
-            if ecWWWLang == 'en'
-                p Please visit the official Apache ECharts Website at
-                a(id="a2", href="https://echarts.apache.org/en/index.html") https://echarts.apache.org
-            else
-                p 请访问 Apache ECharts 的官网 &nbsp;
-                a(id="a1", href="https://echarts.apache.org/zh/index.html") https://echarts.apache.org
-        a.btn.btn-main(href="https://echarts.apache.org", target="_blank", onclick="logApache()")
-            if ecWWWLang == 'en'
-                div Visit Official Website
-            else
-                div 访问官网
-        a.close-btn(href="javascript:;", onclick="closeApacheBanner(true)") x
 
     #main
         block content
