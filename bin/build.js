@@ -308,6 +308,24 @@ async function copyResource(config) {
         }
     }
 
+    async function doCopyWithLang(pattern, cwd) {
+        const srcRelativePathList = await globby(pattern, {
+            cwd
+        });
+
+            for (let i = 0; i < srcRelativePathList.length; i++) {
+                let srcRelativePath = srcRelativePathList[i];
+                let srcAbsolutePath = path.resolve(cwd, srcRelativePath);
+                let destAbsolutePath = path.resolve(config.releaseDestDir, srcRelativePath);
+
+
+                fse.ensureDirSync(path.dirname(destAbsolutePath));
+                fs.copyFileSync(srcAbsolutePath, destAbsolutePath);
+
+                replaceLog('(' + (i + 1) + '/' + srcRelativePathList.length + ') ' + chalk.green(`resource copied to: ${destAbsolutePath}`));
+            }
+    }
+
     console.log();
 
     await doCopy([
@@ -321,6 +339,11 @@ async function copyResource(config) {
         'video/**/*'
     ], projectDir);
 
+    await doCopyWithLang([
+        'vendor-cdn/**/*'
+    ], path.resolve(__dirname, '..'));
+
+    ;
     await doCopy([
         '**/*',
         '!**/index.html',

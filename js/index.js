@@ -124,8 +124,8 @@ window.lazyLoadOptions = {
         return new Promise((resolve) => {
             var landingAnimationURL = 
                 window.EC_WWW_LANG === 'zh'
-                    ? 'https://registry.npmmirror.com/echarts-www-landing-animation/latest/files/'
-                    : 'https://fastly.jsdelivr.net/npm/echarts-www-landing-animation/';
+                    ? '/vendor-cdn/vendor-cdn/echarts-www-landing-animation@0.1.3/'
+                    : '/vendor-cdn/echarts-www-landing-animation@0.1.3/';
             // Load script.
             var link = document.createElement('link');
             var script = document.createElement('script');

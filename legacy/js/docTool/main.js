@@ -150,7 +150,6 @@ define(function (require) {
 
                 var endTime = Date.now();
                 var duration = Math.round((endTime - startTime) / 1000);
-                _hmt.push(['_setCustomVar', 1, 'optionLoadTime', duration, 3]);
 
                 // Before render page
                 this._prepareDoc(schema);
@@ -770,7 +769,6 @@ define(function (require) {
     }
 
     function log(params) {
-        _hmt.push(['_trackEvent', 'doc-' + params.key, pageName, params.data]);
     }
 
     return api;

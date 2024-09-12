@@ -1,10 +1,4 @@
 $(document).ready(function () {
-    if (location.host !== 'echarts.apache.org') {
-		var banner = document.getElementById('apache-banner');
-		if (banner) {
-			banner.style.display = 'block';
-		}
-    }
 
     // close apache banner when found in cookie
     var isClosedStr = Cookies.get('apache-banner-closed');
@@ -83,17 +77,6 @@ $(document).ready(function () {
 });
 
 function changeLang(lang) {
-    if (lang === 'en') {
-        if (location.hostname !== 'echarts.apache.org') {
-            var re = new RegExp('/zh/', 'g');
-            var pathname = location.pathname.replace(re, '/en/');
-
-            var url = 'https://echarts.apache.org' + pathname
-                + location.search + location.hash;
-            location.href = url;
-            return;
-        }
-    }
     location.href = location.href.replace(
         new RegExp('/(zh|en)/', 'g'), '/' + lang + '/'
     );
@@ -103,16 +86,10 @@ function closeApacheBanner(isManualClose) {
     var banner = document.getElementById('apache-banner');
     banner && banner.remove();
 
-    if (isManualClose) {
-        _hmt.push(['_trackEvent', 'apacheBanner', 'close']);
-        Cookies.set('apache-banner-closed', 'true', {
-            expires: 7
-        });
-    }
+
 }
 
 function logApache() {
-    _hmt.push(['_trackEvent', 'apacheBanner', 'visit']);
 }
 
 // Modified from https://github.com/js-cookie/js-cookie

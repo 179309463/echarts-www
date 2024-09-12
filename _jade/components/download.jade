@@ -171,7 +171,7 @@ block content
 
 block extra_js
     //- Force use apache cdn to avoid jsdelivr not update immediately.
-    script(src="#{getAssetUrl('https://echarts.apache.org', ecWWWLang + '/js/download.js')}")
+    script(src="#{getAssetUrl('', ecWWWLang + '/js/download.js')}")
     script(type='text/javascript').
         document.getElementById('nav-download').className = 'active';
 
@@ -189,8 +189,6 @@ block extra_js
         //-         title: 'Notice',
         //-         content: el
         //-     });
-        //-     _hmt.push(['_trackEvent', 'download', 'download', '#{downloadVersion}']);
         //- });
         //- $('.download-theme').click(function () {
-        //-     _hmt.push(['_trackEvent', 'download', 'download-theme', '#{downloadVersion}']);
         //- });
