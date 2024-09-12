@@ -5,7 +5,7 @@ config.host = '';
 
 config.cdnPayRootMap = {
     zh: config.host,
-    en: ''
+    en: config.host
 };
 config.cdnFreeRootMap = {
     zh: config.host,
